@@ -1,57 +1,152 @@
-# AntiRickRoll
+# AntiRickRoll Reloaded
 
-[![Chrome Web Store](https://img.shields.io/chrome-web-store/users/mpnckpmpddjcgkpjkmmakcamjhceadne)](https://antirickroll.com/install)
-[![Chrome Web Store](https://img.shields.io/chrome-web-store/rating/mpnckpmpddjcgkpjkmmakcamjhceadne)](https://antirickroll.com/install)
-[![Discord](https://img.shields.io/badge/Discord-%235865F2.svg?style=flat&logo=discord&logoColor=white)](https://discord.gg/y7jCZCX2Bz)
+> Never gonna rickroll you, never gonna let you get rickrolled.
 
-> <https://antirickroll.com>
+AntiRickRoll Reloaded is a modernized fork of
+[AntiRickRoll](https://github.com/dnorhoj/AntiRickRoll).
 
-AntiRickRoll is a browser extension made to keep you safe from [rickrolls](https://www.urbandictionary.com/define.php?term=Rick%20Roll) on the internet.
-This works by injecting a warning page whenever you click on a known rickroll link.
+It detects known RickRoll links and blocks them before you get sent
+to the video.
 
-![AntiRickRoll example](readme/screenshot_dark.png)
+## Features
 
-## Community
+- 🚫 Blocks known RickRoll links
+- 🎬 YouTube URL detection
+- 🌐 Remote RickRoll database
+- ⚡ Lightweight version check
+- 📊 RickRoll blocking statistics
+- 🌍 Japanese / English UI
+- 🔧 Enable / disable protection
+- 🧩 Manifest V3
+- 💾 Local database caching
 
-Join the Discord community here: [AntiRickRoll discord](https://discord.gg/y7jCZCX2Bz)
+## How it works
 
-## Installing
+The extension checks a tiny version file when a page is opened:
 
-Install for [Chrome](https://chrome.google.com/webstore/detail/antirickroll/mpnckpmpddjcgkpjkmmakcamjhceadne/).
+```text
+https://sakuzyo.net/antirickroll/version.json
+````
 
-Install for [Firefox](https://addons.mozilla.org/en-US/firefox/addon/antirickroll/).
+If the local database is outdated, the extension downloads the latest
+RickRoll database:
 
-## Todo
+```text
+https://sakuzyo.net/antirickroll/links.json
+```
 
-- [x] Basic Functionality
-- [x] Firefox support
-- [ ] Custom links to block
-- [ ] Some kind of dashboard with stats, etc.
+The database is stored locally using `chrome.storage.local`.
 
-## Known bugs
+The remote database contains data only. It does not contain executable
+code.
 
-To report a bug, please open an issue or report it in our discord server.
+## Installation
 
-- None at the moment
+### Chromium-based browsers
 
-## Development
+The extension is currently distributed as an unpacked extension.
 
-### Build instructions
+1. Download or clone this repository.
+2. Install the dependencies.
+3. Build the extension.
+4. Open your browser's extension management page.
+5. Enable Developer Mode.
+6. Select **Load unpacked**.
+7. Select the `dist` directory.
 
-To build the extension with "laravel mix", you need these dependencies:
+### Build
 
-- Node.js (I am using v19.6.0)
-- Yarn
+Requirements:
 
-Any OS should work, but I am using Arch Linux.
+* Node.js 24
+* npm
 
-Then, run these commands:
+Install dependencies:
 
 ```bash
-yarn install # Install dependencies
-yarn run prod # Build the extension in production mode
+npm ci
 ```
+
+Build:
+
+```bash
+npm run build
+```
+
+The built extension will be generated in:
+
+```text
+dist/
+```
+
+## Project structure
+
+```text
+src/
+├── background/
+│   ├── content.js
+│   └── service-worker.js
+├── icons/
+├── popup/
+│   ├── App.svelte
+│   ├── pages/
+│   └── lib/
+├── warn/
+└── manifest-v3.json
+```
+
+## Database
+
+The RickRoll database is maintained separately from the extension.
+
+### Version
+
+```json
+{"v":1}
+```
+
+### Rules
+
+Example:
+
+```json
+{
+  "rules": [
+    {
+      "type": "youtube",
+      "id": "dQw4w9WgXcQ"
+    }
+  ]
+}
+```
+
+More rule types may be added in future versions.
+
+## Browser support
+
+AntiRickRoll Reloaded currently targets Chromium-based browsers
+with Manifest V3 support.
+
+Firefox support is currently experimental / not guaranteed.
+
+## Credits
+
+This project is a modernized fork of
+[AntiRickRoll by dnorhoj](https://github.com/dnorhoj/AntiRickRoll).
+
+The original project is licensed under the GNU General Public License
+version 3.0.
+
+## License
+
+GNU General Public License v3.0.
+
+See [`LICENSE`](LICENSE) for the full license text.
 
 ## Contributing
 
-Just send a pull request, bruh.
+Found a RickRoll that isn't being blocked?
+
+Feel free to open an issue or submit a pull request.
+
+Never gonna give RickRoll up. 😎
