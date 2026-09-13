@@ -5,7 +5,7 @@
 	<meta name="theme-color" content="#fff">
 	<meta name="viewport" content="initial-scale=1, minimum-scale=1, width=device-width">
 	<link rel="shortcut icon" href="../icons/icon16.png" type="image/png">
-	<title>Rickroll warning!</title>
+	<title>Rickroll!</title>
 	<style>
 		body {
 			--google-gray-700: rgb(95, 99, 104);
@@ -128,14 +128,14 @@
 		<div>
 			<div class="icon"></div>
 			<div>
-				<h1>You're about to get Rickrolled!</h1>
-				<p>You clicked on a link that leads to a <strong>RickRoll</strong>!<br>
-				<div class="error-code">antirick::BLOCKED_RICKROLL</div>
+				<h1 id="warning-title"></h1>
+				<p id="warning-description"></p>
+				<div class="error-code" id="error-code">antirick::BLOCKED_RICKROLL</div>
 			</div>
 		</div>
 		<div class="nav-wrapper">
-			<button id="back-btn">Back to safety</button>
-			<button id="continue-btn" class="secondary-button">Continue</button>
+			<button id="back-btn">戻る</button>
+			<button id="continue-btn" class="secondary-button">続行</button>
 		</div>
 	</div>
 </body>

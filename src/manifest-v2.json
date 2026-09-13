@@ -1,25 +1,36 @@
 {
     "manifest_version": 2,
-    "name": "AntiRickRoll",
+    "name": "AntiRickRoll Reloaded",
     "description": "Never gonna rickroll you, never gonna let you get rickrolled.",
-    "version": "1.7",
+    "version": "1.0.0",
+
     "content_scripts": [
         {
             "js": ["background/content.js"],
-            "matches": ["https://*.youtube.com/*"],
+            "matches": ["<all_urls>"],
             "run_at": "document_start"
         }
     ],
+
+    "permissions": [
+        "storage",
+        "https://sakuzyo.net/*"
+    ],
+
+    "background": {
+        "scripts": [
+            "background/background.js"
+        ]
+    },
+
+    "browser_action": {
+        "default_popup": "popup/index.html"
+    },
+
     "web_accessible_resources": [
         "warn/warn.html"
     ],
-    "permissions": [
-        "storage"
-    ],
-    "browser_action": {
-        "default_popup": "popup/index.html",
-        "default_title": "AntiRickRoll"
-    },
+
     "icons": {
         "16": "icons/icon16.png",
         "48": "icons/icon48.png",

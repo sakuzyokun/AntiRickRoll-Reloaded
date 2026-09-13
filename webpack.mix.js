@@ -22,6 +22,7 @@ mix.svelte({
 mix.disableNotifications();
 
 mix.js('src/background/content.js', 'dist/background/content.js')
+    .js('src/background/service-worker.js', 'dist/background/service-worker.js')
     .js('src/warn/index.js', 'dist/warn/index.js')
     .copy('src/warn/index.html', 'dist/warn/warn.html')
     .copy('src/warn/critical.png', 'dist/warn/critical.png')
