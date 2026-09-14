@@ -35,7 +35,7 @@ RickRoll database:
 https://sakuzyo.net/antirickroll/links.json
 ```
 
-The database is stored locally using `chrome.storage.local`.
+The database is stored locally using the browser's extension storage.
 
 The remote database contains data only. It does not contain executable
 code.
@@ -84,6 +84,13 @@ dist/
 6. Select **Load unpacked**.
 7. Select the `dist` directory.
 
+### Firefox
+
+The extension is distributed through
+[Firefox Add-ons](https://addons.mozilla.org/).
+
+Install it from the Firefox Add-ons page.
+
 ## Project structure
 
 ```text
@@ -129,10 +136,10 @@ More rule types may be added in future versions.
 
 ## Browser support
 
-AntiRickRoll Reloaded currently targets Chromium-based browsers
-with Manifest V3 support.
+AntiRickRoll Reloaded supports:
 
-Firefox support is currently experimental / not guaranteed.
+- Chromium-based browsers with Manifest V3 support
+- Firefox with Manifest V3 support
 
 ## Community & Contributing
 
