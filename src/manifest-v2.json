@@ -1,39 +1,26 @@
 {
-    "manifest_version": 2,
-    "name": "AntiRickRoll Reloaded",
-    "description": "Never gonna rickroll you, never gonna let you get rickrolled.",
-    "version": "1.0.0",
-
-    "content_scripts": [
-        {
-            "js": ["background/content.js"],
-            "matches": ["<all_urls>"],
-            "run_at": "document_start"
-        }
-    ],
-
-    "permissions": [
-        "storage",
-        "https://sakuzyo.net/*"
-    ],
-
-    "background": {
-        "scripts": [
-            "background/background.js"
-        ]
-    },
-
-    "browser_action": {
-        "default_popup": "popup/index.html"
-    },
-
-    "web_accessible_resources": [
-        "warn/warn.html"
-    ],
-
-    "icons": {
-        "16": "icons/icon16.png",
-        "48": "icons/icon48.png",
-        "128": "icons/icon128.png"
+  "manifest_version": 2,
+  "name": "AntiRickRoll Reloaded",
+  "version": "1.0.0",
+  "description": "Never gonna rickroll you, never gonna let you get rickrolled.",
+  "content_scripts": [
+    {
+      "js": ["background/content.js"],
+      "matches": ["<all_urls>"],
+      "run_at": "document_start"
     }
+  ],
+  "web_accessible_resources": [
+    "warn/warn.html"
+  ],
+  "permissions": [
+    "storage",
+    "https://sakuzyo.net/*"
+  ],
+  "browser_action": {
+    "default_popup": "popup/index.html"
+  },
+  "background": {
+    "scripts": ["background/service-worker.js"]
+  }
 }

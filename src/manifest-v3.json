@@ -23,6 +23,7 @@
 		"default_popup": "popup/index.html"
 	},
         "background": {
+                "scripts": ["background/service-worker.js"],
                 "service_worker": "background/service-worker.js"
         },
         "host_permissions": [
