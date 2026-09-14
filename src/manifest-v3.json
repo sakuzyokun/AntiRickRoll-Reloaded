@@ -3,6 +3,11 @@
         "name": "AntiRickRoll Reloaded",
 	"description": "Never gonna rickroll you, never gonna let you get rickrolled.",
 	"version": "1.0.0",
+        "browser_specific_settings": {
+               "gecko": {
+                        "id": "antirickroll-reloaded@sakuzyo.net"
+                }
+        },
 	"content_scripts": [
 		{
 			"js": ["background/content.js"],
