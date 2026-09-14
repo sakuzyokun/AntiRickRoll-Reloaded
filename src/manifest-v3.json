@@ -5,8 +5,12 @@
 	"version": "1.0.0",
         "browser_specific_settings": {
                "gecko": {
-                        "id": "antirickroll-reloaded@sakuzyo.net"
-                }
+                        "id": "antirickroll-reloaded@sakuzyo.net",
+                        "data_collection_permissions": {
+                                "required": ["none"]
+                        }
+                },
+                "gecko_android": {}
         },
 	"content_scripts": [
 		{
@@ -38,5 +42,9 @@
 		"16": "icons/icon16.png",
 		"48": "icons/icon48.png",
 		"128": "icons/icon128.png"
-	}
+	},
+        "options_ui": {
+                "page": "popup/index.html",
+                "open_in_tab": true
+        }
 }
