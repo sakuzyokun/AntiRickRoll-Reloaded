@@ -26,7 +26,7 @@ The extension checks a tiny version file when a page is opened:
 
 ```text
 https://sakuzyo.net/antirickroll/version.json
-````
+```
 
 If the local database is outdated, the extension downloads the latest
 RickRoll database:
@@ -44,30 +44,30 @@ code.
 
 ### Chromium-based browsers
 
-The extension is currently distributed as an unpacked extension.
+The extension is distributed as a pre-built ZIP package.
 
-1. Download or clone this repository.
-2. Install the dependencies.
-3. Build the extension.
-4. Open your browser's extension management page.
-5. Enable Developer Mode.
-6. Select **Load unpacked**.
-7. Select the `dist` directory.
+1. Download the latest release.
+2. Extract the ZIP file.
+3. Open your browser's extension management page.
+4. Enable Developer Mode.
+5. Select **Load unpacked**.
+6. Select the extracted extension directory.
 
-### Build
+### Building from source
 
 Requirements:
 
-* Node.js 24
-* npm
+- Node.js 24
+- npm
 
-Install dependencies:
+1. Clone or download this repository.
+2. Install the dependencies:
 
 ```bash
 npm ci
 ```
 
-Build:
+3. Build the extension:
 
 ```bash
 npm run build
@@ -78,6 +78,11 @@ The built extension will be generated in:
 ```text
 dist/
 ```
+
+4. Open your browser's extension management page.
+5. Enable Developer Mode.
+6. Select **Load unpacked**.
+7. Select the `dist` directory.
 
 ## Project structure
 
@@ -129,6 +134,20 @@ with Manifest V3 support.
 
 Firefox support is currently experimental / not guaranteed.
 
+## Community & Contributing
+
+Found a RickRoll that isn't being blocked?
+
+Please report it on GitHub:
+
+👉 [Report a RickRoll](https://github.com/sakuzyokun/AntiRickRoll-Reloaded/issues/new)
+
+Want to add a rule yourself?
+
+👉 [Submit a Pull Request](https://github.com/sakuzyokun/AntiRickRoll-Reloaded/compare)
+
+Pull requests and issue reports are welcome!
+
 ## Credits
 
 This project is a modernized fork of
@@ -142,11 +161,5 @@ version 3.0.
 GNU General Public License v3.0.
 
 See [`LICENSE`](LICENSE) for the full license text.
-
-## Contributing
-
-Found a RickRoll that isn't being blocked?
-
-Feel free to open an issue or submit a pull request.
 
 Never gonna give RickRoll up. 😎
