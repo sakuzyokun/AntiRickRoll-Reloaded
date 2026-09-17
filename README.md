@@ -87,7 +87,7 @@ dist/
 ### Firefox
 
 The extension is distributed through
-[Firefox Add-ons](https://addons.mozilla.org/).
+[Firefox Add-ons](https://addons.mozilla.org/ja/firefox/addon/antirickroll-reloaded/).
 
 Install it from the Firefox Add-ons page.
 
