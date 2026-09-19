@@ -33,6 +33,9 @@ const translations = {
         rules: 'ルール',
         updating: '更新中...',
         updateFailed: '更新に失敗しました',
+
+        allLinksToRickRoll: '全リンクをRickRollにする',
+        allLinksToRickRollDesc: 'すべてのページのリンクをRickRollにします。例えば、<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">こんな感じです</a>。<br><span class="text-yellow-600">※再読込すると設定が適用されます。</span>',
     },
 
     en: {
@@ -67,6 +70,9 @@ const translations = {
         rules: 'Rules',
         updating: 'Updating...',
         updateFailed: 'Update failed',
+
+        allLinksToRickRoll: 'RickRoll all links',
+        allLinksToRickRollDesc: 'All links on every page will be redirected to Rick Astley. For example, <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer" class="text-blue-600 underline">like this</a>.<br><span class="text-yellow-600">※Reload the page to apply this setting.</span>',
     }
 };
 

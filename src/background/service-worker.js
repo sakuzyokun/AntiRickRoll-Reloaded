@@ -71,6 +71,17 @@ async function doUpdate() {
 }
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+    if (message?.type === 'setBadge') {
+        const count = Number(message.count) || 0;
+
+        chrome.action.setBadgeText({
+            text: count > 99 ? '99+' : count > 0 ? String(count) : ''
+        });
+
+        sendResponse({ ok: true });
+        return;
+    }
+
     if (message?.type !== 'updateDatabase') {
         return;
     }

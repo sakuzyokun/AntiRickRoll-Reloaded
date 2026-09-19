@@ -82,6 +82,30 @@
         return rules.some(rule => matchesRule(rule, location.href));
     };
 
+    const RICKROLL_URL = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+
+    const rickRollAllLinks = () => {
+        document.querySelectorAll('a[href]').forEach(link => {
+            if (link.dataset.antirickrollProcessed === 'true') {
+                return;
+            }
+
+            link.dataset.antirickrollProcessed = 'true';
+            link.href = RICKROLL_URL;
+        });
+    };
+
+    const observeLinks = () => {
+        const observer = new MutationObserver(() => {
+            rickRollAllLinks();
+        });
+
+        observer.observe(document.documentElement, {
+            childList: true,
+            subtree: true
+        });
+    };
+
     const checkLink = async () => {
         // Don't do anything if the extension has been disabled.
         const settings = await chrome.storage.local.get([
@@ -90,6 +114,10 @@
             'extDisabled',
             'rickRollHistory'
         ]);
+
+        if (settings.rickRollAllLinks) {
+            rickRollAllLinks();
+        }
 
         if (settings.extDisabled) {
             return;
@@ -119,9 +147,16 @@
 
         history.push(now);
 
+        const total = (settings.totalRickRolls ?? 0) + 1;
+
         await chrome.storage.local.set({
-            totalRickRolls: (settings.totalRickRolls ?? 0) + 1,
+            totalRickRolls: total,
             rickRollHistory: history
+        });
+
+        chrome.runtime.sendMessage({
+            type: 'setBadge',
+            count: total
         });
 
         // Show warning page.
@@ -140,4 +175,11 @@
 
     // Also catch normal browser history navigation.
     addEventListener('popstate', checkLink);
+
+    chrome.storage.local.get(['rickRollAllLinks']).then(settings => {
+        if (settings.rickRollAllLinks) {
+            rickRollAllLinks();
+            observeLinks();
+        }
+    });
 })();

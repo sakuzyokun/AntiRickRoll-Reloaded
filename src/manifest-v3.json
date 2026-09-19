@@ -2,7 +2,7 @@
 	"manifest_version": 3,
         "name": "AntiRickRoll Reloaded",
 	"description": "Never gonna rickroll you, never gonna let you get rickrolled.",
-	"version": "1.0.0",
+	"version": "1.0.1",
         "browser_specific_settings": {
                "gecko": {
                         "id": "antirickroll-reloaded@sakuzyo.net",

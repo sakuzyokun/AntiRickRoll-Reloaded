@@ -4,18 +4,27 @@
     import { t } from "../lib/i18n";
 
     let enabled = true;
+    let rickRollAllLinks = false;
 
     onMount(async () => {
         const result = await chrome.storage.local.get([
-            "extDisabled"
+            "extDisabled",
+            "rickRollAllLinks"
         ]);
 
         enabled = !result.extDisabled;
+        rickRollAllLinks = result.rickRollAllLinks ?? false;
     });
 
     const toggleProtection = async () => {
         await chrome.storage.local.set({
             extDisabled: !enabled
+        });
+    };
+
+    const toggleRickRollAllLinks = async () => {
+        await chrome.storage.local.set({
+            rickRollAllLinks
         });
     };
 </script>
@@ -40,6 +49,25 @@
             <Toggle
                 bind:checked={enabled}
                 on:change={toggleProtection}
+            />
+        </div>
+    </Card>
+
+    <Card padding="none">
+        <div class="flex items-center p-4 text-gray-700">
+            <div class="flex-grow pr-3">
+                <div class="font-medium">
+                    {$t.allLinksToRickRoll}
+                </div>
+
+                <div class="text-sm text-gray-500">
+                    {@html $t.allLinksToRickRollDesc}
+                </div>
+            </div>
+
+            <Toggle
+                bind:checked={rickRollAllLinks}
+                on:change={toggleRickRollAllLinks}
             />
         </div>
     </Card>
@@ -75,7 +103,7 @@
             </span>
 
             <span class="p-4 font-bold">
-                v1.0.0
+                v1.0.1
             </span>
         </div>
     </Card>
